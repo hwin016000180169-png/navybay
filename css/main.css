@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: 'Pretendard', sans-serif;
+  overflow-x: hidden;
+}
+
+.intro {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* --- 기존 배경 효과 --- */
+.visual-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.blur-circle {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,102,255,0.2) 0%, rgba(255,255,255,0) 70%);
+  filter: blur(100px);
+  animation: float 8s ease-in-out infinite alternate;
+}
+
+.blur-circle.small {
+  width: 300px;
+  height: 300px;
+  top: 60%;
+  left: 70%;
+  background: radial-gradient(circle, rgba(0,102,255,0.25) 0%, rgba(255,255,255,0) 70%);
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, -40px); }
+}
+
+/* --- 텍스트 --- */
+.intro-text {
+  z-index: 2;
+  text-align: center;
+}
+
+.intro-text h1 {
+  font-size: 8vw;
+  color: #223A5E;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.intro-text .sub {
+  font-size: 1rem;
+  color: #223A5E;
+  margin-top: 1rem;
+}
+
+/* --- 메뉴 --- */
+.menu {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  z-index: 3;
+}
+
+.menu ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  color: #223A5E;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* --- 마우스 유리 효과 --- */
+.cursor-glass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  mix-blend-mode: screen;
+  transition: transform 0.15s ease-out;
+  z-index: 5;
+  box-shadow: 0 0 40px rgba(26, 0, 24, 0.2);
+}

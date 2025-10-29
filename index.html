@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVYBAY</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+
+
+
+
+
+<body>
+
+<section class="intro">
+  <div class="visual-bg">
+    <div class="blur-circle"></div>
+    <div class="blur-circle small"></div>
+  </div>
+
+  <div class="intro-text">
+    <h1>NAVYBAY</h1>
+    <p class="sub">Discover the power of precision,<br>crafted for your perfect swing.</p>
+  </div>
+
+  <nav class="menu">
+    <ul>
+      <li>ABOUT</li>
+      <li>PRODUCT</li>
+      <li>VISION</li>
+      <li>CONTACT</li>
+    </ul>
+  </nav>
+
+  <!-- 마우스 따라다니는 물방울 -->
+  <div class="cursor-glass"></div>
+</section>
+
+<script>
+  const glass = document.querySelector('.cursor-glass');
+
+  document.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e;
+    glass.style.transform = `translate(${clientX - 100}px, ${clientY - 100}px)`;
+  });
+</script>
+
+    
+</body>
+</html>
