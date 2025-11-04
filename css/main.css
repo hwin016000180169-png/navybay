@@ -63,6 +63,7 @@ body.fade-active .menu ul li a {
 }
 
 .intro-text h1 {
+  margin-top: 10%;
   font-size: 8vw;
   color: #223A5E;
   font-weight: 700;
@@ -98,6 +99,7 @@ body.fade-active .menu ul li a {
   transition: color 0.6s ease;
 }
 
+.menu ul li:hover a { filter: blur(1px);}
 
 /* --- 마우스 유리 효과 --- */
 .cursor-glass {
@@ -167,7 +169,7 @@ body.fade-active .menu ul li a {
 }
 
 .card-section h2 {
-  font-size: 2.3vw;
+  font-size: 2.2vw;
   font-weight: 700;
   margin-bottom: 3.5vw;
   color: #fff;
@@ -231,7 +233,7 @@ body.fade-active .menu ul li a {
 .card-bg1 {
   position: absolute;
   inset: 0;
-  background: url('/images/card01_bg.png') center/cover no-repeat;
+  background: url('../images/card01_bg.png') center/cover no-repeat;
   opacity: 0.3;
   z-index: 0;
   transition: 0.6s linear ;
@@ -239,7 +241,7 @@ body.fade-active .menu ul li a {
 .card-bg2 {
   position: absolute;
   inset: 0;
-  background: url('/images/card02_bg.png') center/cover no-repeat;
+  background: url('../images/card02_bg.png') center/cover no-repeat;
   opacity: 0.3;
   z-index: 0;
   transition: 0.6s linear ;
@@ -247,7 +249,7 @@ body.fade-active .menu ul li a {
 .card-bg3 {
   position: absolute;
   inset: 0;
-  background: url('/images/card03_bg.png') center/cover no-repeat;
+  background: url('../images/card03_bg.png') center/cover no-repeat;
   opacity: 0.3;
   z-index: 0;
   transition: 0.6s linear ;
@@ -255,7 +257,7 @@ body.fade-active .menu ul li a {
 .card-bg4 {
   position: absolute;
   inset: 0;
-  background: url('/images/card04_bg.png') center/cover no-repeat;
+  background: url('../images/card04_bg.png') center/cover no-repeat;
   opacity: 0.3;
   z-index: 0;
   transition: 0.6s linear ;
@@ -292,6 +294,114 @@ body.fade-active .menu ul li a {
 }
 
 
+.sec3 {
+  position: relative;
+  height: 100vh; /* 스크롤 여유 확보 */
+  overflow: hidden;
+  background: #000;
+ 
+  
+  
+}
+
+/* 🔹 가로 슬라이드 배경 */
+.sec3-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0008A9;
+  transform: translateX(-100%);
+  z-index: 0;
+}
+
+/* 🔹 콘텐츠 영역 (sticky) */
+.sec3-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.sec3-title {
+  font-size: 5vw;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.sec3-images {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sec3-images img {
+  position: absolute;
+  width: 100%;
+  opacity: 0; /* 처음엔 안 보이게 */
+  transition: opacity 0.8s ease;
+  z-index: 1;
+}
+
+.sec3 .textbox {color: #fff; position: absolute; top: 40%; left: 50%;
+transform: translateX(-50%); font-size: 5vw; font-weight: 700;}
+
+.brand-mark {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+#swoosh-mark {
+  position: absolute;
+  left: 50%;
+  bottom: -30%;
+  transform: translateX(-50%);
+  width: 20vw;
+  height: auto;
+  pointer-events: none; /* 마우스 멈춤 방지 */
+}
+#swoosh-mark path {
+  stroke: #eea4e8;
+  stroke-width: 2;
+  fill: #223A5E; 
+}
+
+.baro {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10vw;
+  height: 20vh;
+  background: url('../images/click.png') center/contain no-repeat;
+  border: none;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 50%;
+}
+
+.baro:hover { top: 69%; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }  
 
 
-
+.sec4 {width: 100vw;
+height: 100vh;
+background: #fff;
+position: relative;
+z-index: 500;}
+.sec4 video {width: 100vw;}
