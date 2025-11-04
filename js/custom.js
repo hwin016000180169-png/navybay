@@ -86,3 +86,23 @@ window.addEventListener('scroll', () => {
 
 
 
+/* ===========================
+   SVG 싸인 애니메이션
+=========================== */
+window.addEventListener("DOMContentLoaded", () => {
+  const paths = document.querySelectorAll("#swoosh-mark path");
+  paths.forEach(p => {
+    const len = p.getTotalLength();
+    p.style.strokeDasharray = len;
+    p.style.strokeDashoffset = len;
+    p.style.transition = "none";
+  });
+
+  // 살짝 딜레이 후 싸인 시작
+  setTimeout(() => {
+    paths.forEach((p, i) => {
+      p.style.transition = `stroke-dashoffset 2s ease-in-out ${i * 0.1}s`;
+      p.style.strokeDashoffset = 0;
+    });
+  }, 300);
+});
