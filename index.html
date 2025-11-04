@@ -1,53 +1,138 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAVYBAY</title>
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVYBAY</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard.css">
+ 
 </head>
-
-
-
-
-
-
 
 <body>
 
-<section class="intro">
-  <div class="visual-bg">
-    <div class="blur-circle"></div>
-    <div class="blur-circle small"></div>
-  </div>
+  <section class="intro">
+    <div class="visual-bg">
+      <div class="blur-circle"></div>
+      <div class="blur-circle small"></div>
+    </div>
 
-  <div class="intro-text">
-    <h1>NAVYBAY</h1>
-    <p class="sub">Discover the power of precision,<br>crafted for your perfect swing.</p>
-  </div>
+    <div class="intro-text">
+      <h1 class="glow-text">NAVYBAY</h1>
+      <p class="sub">Discover the power of precision,<br>crafted for your perfect swing.</p>
+    </div>
 
-  <nav class="menu">
-    <ul>
-      <li>ABOUT</li>
-      <li>PRODUCT</li>
-      <li>VISION</li>
-      <li>CONTACT</li>
+    <nav class="menu">
+      <ul>
+        <li>
+          <a href="#">
+            ABOUT</a>
+        </li>
+        <li>
+          <a href="#">
+            PRODUCT
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            VISION
+          </a>
+        </li>
+        <li>
+          <a href="#">
+          CONTACT
+        </a></li>
+      </ul>
+    </nav>
+
+    <!-- 마우스 따라다니는 유리 효과 -->
+    <div class="cursor-glass"></div>
+  </section>
+
+
+  <section class="sec2">
+    <div class="lineimg">
+      <div class="textbox">
+        <h1>Golf, Refined.</h1>
+        <p>정제된 감성과 기술이 만나는 지점.</p>
+        <p>NAVYBAY의 시그니처 골프볼로 브랜드의 본질을 경험하세요.</p>
+      </div>
+  </div>
+   
+     <!-- 🔹 카드 리스트 영역 -->
+  <div class="card-section">
+    <h2>당신의 플레이를 완성하는 큐레이션</h2>
+    <ul class="card-list">
+      <li>
+        <div class="card">
+          <div class=".card-bg card-bg1"></div>
+          <div class="card-text">
+            <h3>Point 1</h3>
+            <h4>전문 브랜드 셀렉</h4>
+            <p>전문 브랜드와 협업하여<br>정품 중심의 신뢰 높은 큐레이션 제공</p>
+          </div>
+        </div>
+      </li>
+      <li><div class="card"><div class=".card-bg card-bg2"></div><div class="card-text"><h3>Point 2</h3><h4>고객 중심 서비스</h4><p>고객 만족과 신뢰를 바탕으로<br>맞춤형 큐레이션 제안</p></div></div></li>
+      <li><div class="card"><div class=".card-bg card-bg3"></div><div class="card-text"><h3>Point 3</h3><h4>트렌드 큐레이션</h4><p>국내외 프리미엄 골프 브랜드와<br>트렌드를 함께 제시</p></div></div></li>
+      <li><div class="card"><div class=".card-bg card-bg4"></div><div class="card-text"><h3>Point 4</h3><h4>온·오프라인 통합</h4><p>오프라인 경험과 온라인 편리함을<br>동시에 제공</p></div></div></li>
     </ul>
-  </nav>
+  </div>
+  </section>
 
-  <!-- 마우스 따라다니는 물방울 -->
-  <div class="cursor-glass"></div>
-</section>
+
+  <section class="sec3">
+    <div class="centerbox">
+      <ul class="cardbox">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </section>
+  
+
+  
+
+</body>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+
 
 <script>
-  const glass = document.querySelector('.cursor-glass');
+gsap.registerPlugin(ScrollTrigger);
 
-  document.addEventListener('mousemove', (e) => {
-    const { clientX, clientY } = e;
-    glass.style.transform = `translate(${clientX - 100}px, ${clientY - 100}px)`;
-  });
+/* ===========================
+   4️⃣ sec2 카드 애니메이션
+=========================== */
+gsap.utils.toArray(".card").forEach((card, i) => {
+  gsap.fromTo(card,
+    {
+      y: 80,
+      opacity: 0
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",   // 화면 하단 근처에서 시작
+        end: "top 50%",
+        toggleActions: "play none none reverse"
+      }
+    }
+  );
+});
 </script>
 
-    
-</body>
+ 
+
+  
 </html>
