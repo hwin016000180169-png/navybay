@@ -106,3 +106,32 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }, 300);
 });
+
+// ✅ intro & sec4 → navy, 그 외(=sec2, sec3, sec5 이후) → white
+// ✅ 메뉴 색상 전환 (intro & sec4 = navy / sec5 이후 = white)
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section');
+  const menuLinks = document.querySelectorAll('.menu ul li a');
+  if (sections.length === 0 || menuLinks.length === 0) return;
+
+  const winH = window.innerHeight;
+  let activeColor = "#fff"; // 기본 흰색
+
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    const inView = rect.top < winH * 0.5 && rect.bottom > winH * 0.5;
+
+    if (inView) {
+      // intro, sec4는 네이비 / sec5는 흰색 / 나머지도 흰색
+      if (sec.classList.contains("intro") || sec.classList.contains("sec4")) {
+        activeColor = "#223A5E";
+      } else {
+        activeColor = "#fff";
+      }
+    }
+  });
+
+  menuLinks.forEach(a =>
+    gsap.to(a, { color: activeColor, duration: 0.4, ease: "power2.out" })
+  );
+});
